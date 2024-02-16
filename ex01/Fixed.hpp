@@ -2,16 +2,21 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
 
 class Fixed{
 public:
 
     Fixed();
-
     Fixed(const Fixed &other);
+    Fixed(const int param);
+    Fixed(const float param);
 
-    int getRawBits(void) const;
-    void setRawBits(int const raw);
+    int     getRawBits(void) const;
+    void    setRawBits(int const raw);
+
+    float   toFloat(void) const;
+    int     toInt(void) const;
 
     Fixed &operator=(const Fixed &other);
 
