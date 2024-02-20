@@ -12,11 +12,29 @@ public:
     Fixed(const int param);
     Fixed(const float param);
 
-    int     getRawBits(void) const;
-    void    setRawBits(int const raw);
+    bool    operator>(const Fixed &other) const;
+    bool    operator<(const Fixed &other) const;
+    bool    operator>=(const Fixed &other) const;
+    bool    operator<=(const Fixed &other) const;
+    bool    operator==(const Fixed &other) const;
+    bool    operator!=(const Fixed &other) const;
+
+    float   operator+(const Fixed &other) const;
+    float   operator-(const Fixed &other) const;
+    float   operator*(const Fixed &other) const;
+    float   operator/(const Fixed &other) const;
+
+    Fixed   operator++(int);
+    Fixed   operator++();
+    Fixed   operator--(int);
+    Fixed   operator--();
+
 
     float   toFloat(void) const;
     int     toInt(void) const;
+
+    int     getRawBits(void) const;
+    void    setRawBits(int const raw);
 
     Fixed &operator=(const Fixed &src);
 

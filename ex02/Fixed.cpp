@@ -47,6 +47,68 @@ int Fixed::toInt() const {
     return (value >> fractionalBits);
 }
 
+bool    Fixed::operator>(const Fixed &other) const {
+    return (value > other.value);
+}
+
+bool    Fixed::operator<(const Fixed &other) const {
+    return (value < other.value);
+}
+
+bool    Fixed::operator>=(const Fixed &other) const {
+    return (value >= other.value);
+}
+
+bool    Fixed::operator<=(const Fixed &other) const {
+    return (value <= other.value);
+}
+
+bool    Fixed::operator==(const Fixed &other) const {
+    return (value == other.value);
+}
+
+bool    Fixed::operator!=(const Fixed &other) const {
+    return (value != other.value);
+}
+
+float   Fixed::operator+(const Fixed &other) const {
+    return (toFloat() + other.toFloat());
+}
+
+float   Fixed::operator-(const Fixed &other) const {
+    return (toFloat() - other.toFloat());
+}
+
+float   Fixed::operator*(const Fixed &other) const {
+    return (toFloat() * other.toFloat());
+}
+
+float   Fixed::operator/(const Fixed &other) const {
+    return (toFloat() / other.toFloat());
+}
+
+Fixed   Fixed::operator++(int) {
+    Fixed tmp(*this);
+    value++;
+    return (tmp);
+}
+
+Fixed   Fixed::operator++() {
+    value++;
+    return (*this);
+}
+
+Fixed   Fixed::operator--(int) {
+    Fixed tmp(*this);
+    value--;
+    return (tmp);
+}
+
+Fixed   Fixed::operator--() {
+    value--;
+    return (*this);
+}
+
 std::ostream	&operator<<(std::ostream &o, Fixed const &fixed)
 {
     o << fixed.toFloat();
