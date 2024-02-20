@@ -18,7 +18,7 @@ public:
     float   toFloat(void) const;
     int     toInt(void) const;
 
-    Fixed &operator=(const Fixed &other);
+    Fixed &operator=(const Fixed &src);
 
     ~Fixed();
 
